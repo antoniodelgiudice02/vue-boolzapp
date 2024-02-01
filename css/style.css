@@ -2,6 +2,10 @@
     border: 1px solid red;
 }
 
+.debug-green{
+    border: 1px solid green;
+}
+
 *{
     list-style-type: none;
 }
@@ -20,6 +24,7 @@
 
 #contacts{
     padding: 0;
+    height: 100%;
 }
 
 /* header */
@@ -40,9 +45,19 @@
     height: 35px;
 }
 
+
 /* list */
 
+#contacts-list{
+    height: calc(100% - (65px + 60px));
+}
+
 #list{
+    height: calc(100% - 35px);
+    overflow: scroll;
+}
+
+#list .item-box{
     height: 65px;
 }
 
@@ -52,6 +67,23 @@
 
 .item-pic{
     width: 20%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pro-pic{
+    width: 85%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#pro-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .item-text{
@@ -73,6 +105,29 @@
 
 #chat .header{
     height: 60px;
+}
+
+/* header */
+
+#chat .header .item-pic{
+    width: 10%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chat .header #pro-pic{
+    width: 85%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#chat .header .item-text{    
+}
+
+#chat .header .item-info{
+    flex-grow: 1;
 }
 
 /* chat box */

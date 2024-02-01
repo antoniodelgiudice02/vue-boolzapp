@@ -13,7 +13,7 @@
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- js -->
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
 
@@ -34,6 +34,12 @@
                             <div class="item-box d-flex  debug">
 
                                 <div class="item-pic debug">
+
+                                    <div id="pro-pic" class="debug">
+
+                                        
+
+                                    </div>
 
                                 </div>
 
@@ -56,6 +62,12 @@
                             <div class="item-box d-flex  debug">
 
                                 <div class="item-pic debug">
+
+                                    <div id="pro-pic" class="debug">
+
+                                        
+
+                                    </div>
 
                                 </div>
 
@@ -91,14 +103,23 @@
 
                             <!-- list -->
 
-                            <ul id="list" class="m-0 p-0">
-                                <li class="item-box d-flex  debug">
+                            <ul id="list" class="m-0 p-0 debug-green">
+                                <div class="item-box d-flex  debug" v-for="(contact, index) in contacts">
 
                                     <div class="item-pic debug">
+
+                                        <div id="pro-pic" class="debug">
+
+                                            <img :src="contacts[index].avatar" alt="">
+
+                                        </div>
 
                                     </div>
 
                                     <div class="item-text debug">
+
+                                        <div><span class="contact-name">{{contacts[index].name}}</span></div>
+                                        <div><span class="last-mex">{{contacts[index].messages.slice(-1).message}}</span></div>
 
                                     </div>
 
@@ -106,7 +127,7 @@
 
                                     </div>
 
-                                </li>
+                                </div>
                             </ul>
 
 
@@ -125,6 +146,12 @@
                             <div class="item-box d-flex  debug">
 
                                 <div class="item-pic debug">
+
+                                    <div id="pro-pic" class="debug">
+
+                                        
+
+                                    </div>
 
                                 </div>
 
