@@ -1,0 +1,70 @@
+.debug{
+    border: 1px solid red;
+}
+
+*{
+    list-style-type: none;
+}
+
+#interface{
+    width: 75%;
+    height: 90%;
+}
+
+/* main */
+
+
+/*************************************
+             CONTACTS
+**************************************/
+
+#contacts{
+    padding: 0;
+}
+
+/* header */
+
+#contacts .header{
+    height: 60px;
+}
+
+/* info box */
+
+#contacts #info-box{
+    height: 65px;
+}
+
+/* search */
+
+#contacts #search-bar{
+    height: 35px;
+}
+
+#contacts .contact-box{
+    height: 65px;
+}
+
+
+/*************************************
+             CHAT
+**************************************/
+
+#chat{
+    padding: 0;
+}
+
+#chat .header{
+    height: 60px;
+}
+
+/* chat box */
+
+#chat #chat-box{
+    height: calc(100% - 110px);
+}
+
+/* footer */
+
+#chat .footer{
+    height: 50px;
+}
