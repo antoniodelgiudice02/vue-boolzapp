@@ -40,8 +40,26 @@
     height: 35px;
 }
 
-#contacts .contact-box{
+/* list */
+
+#list{
     height: 65px;
+}
+
+.item-box{
+    height: 100%;
+}
+
+.item-pic{
+    width: 20%;
+}
+
+.item-text{
+    flex-grow: 1;
+}
+
+.item-info{
+    width: 30%;
 }
 
 
@@ -67,4 +85,14 @@
 
 #chat .footer{
     height: 50px;
+}
+
+.footer .emoji,
+.footer .audio-message{
+    width: 10%;
+}
+
+.footer .box-message{
+    flex-grow: 1;
+
 }
