@@ -37,13 +37,15 @@
 
                                     <div id="pro-pic" class="debug">
 
-                                        
+                                        <img src="./img/avatar_io.jpg" alt="">
 
                                     </div>
 
                                 </div>
 
                                 <div class="item-text debug">
+
+                                    <span>Sofia</span>
 
                                 </div>
 
@@ -63,9 +65,9 @@
 
                                 <div class="item-pic debug">
 
-                                    <div id="pro-pic" class="debug">
+                                    <div id="pro-pic" class="text-center debug">
 
-                                        
+                                        <i class="fa-solid fa-bell-slash"></i>
 
                                     </div>
 
@@ -104,13 +106,13 @@
                             <!-- list -->
 
                             <ul id="list" class="m-0 p-0 debug-green">
-                                <div class="item-box d-flex  debug" v-for="(contact, index) in contacts">
+                                <div class="item-box d-flex debug" :class=" (currentContact == index) ? 'clicked' : ''" v-for="(contact, index) in contacts" @click="getCurrenctContact(index)" >
 
                                     <div class="item-pic debug">
 
                                         <div id="pro-pic" class="debug">
 
-                                            <img :src="contacts[index].avatar" alt="">
+                                            <img :src="contact.avatar" alt="">
 
                                         </div>
 
@@ -118,8 +120,8 @@
 
                                     <div class="item-text debug">
 
-                                        <div><span class="contact-name">{{contacts[index].name}}</span></div>
-                                        <div><span class="last-mex">{{contacts[index].messages.slice(-1).message}}</span></div>
+                                        <div><span class="contact-name">{{contact.name}}</span></div>
+                                        <div><span class="last-mex">{{getLastMessage(contact.messages)}}</span></div>
 
                                     </div>
 
@@ -149,14 +151,15 @@
 
                                     <div id="pro-pic" class="debug">
 
-                                        
+                                        <img :src="currentContact.avatar" alt="">
 
                                     </div>
 
                                 </div>
 
-                                <div class="item-text debug">
-
+                                <div class="item-text debug align-center">
+                                    <div><span class="contact-name">{{currentContact.name}}</span></div>
+                                    <div><span class="last-mex">ultimo accesso il {{getLastAcess(currentContact.messages)}}</span></div>
                                 </div>
 
                                 <div class="item-info debug">
@@ -170,6 +173,14 @@
                         <!-- chat box -->
 
                         <section id="chat-box">
+
+                            <div class="box-sent-mex" v-for="message in getSentAcess(currentContact.messages)" >
+                                <div class="sent mex p-2"><span>{{message.message}}</span></div>
+                            </div>
+
+                            <div class="box-received-mex" v-for="message in getReceivedAcess(currentContact.messages)">
+                                <span class="received mex p-2">{{message.message}}</span>
+                            </div>
 
                         </section>
 

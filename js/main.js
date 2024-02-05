@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+
         contacts: [
           {
           name: 'Michele',
@@ -165,9 +166,44 @@ const { createApp } = Vue
           }
           ],
           }
-          ]
+          ],
+
+          currentIndex: 0
+          
       }
     },
+
+    computed:{
+      currentContact(){
+        return this.contacts[this.currentIndex]
+      }
+    },
+
     methods:{
+      getCurrenctContact(index){
+        this.currentIndex = index
+      },
+
+      getLastMessage(messages){
+        const receivedMessage = messages.filter((message) => message.status == 'received')
+        const lastMex = receivedMessage[receivedMessage.length - 1]
+        return lastMex.message
+      },
+
+      getLastAcess(messages){
+        const sentMessage = messages.filter((message) => message.status == 'sent')
+        const lastAccess = sentMessage[sentMessage.length - 1]
+        return lastAccess.date
+      },
+
+      getSentAcess(messages){
+        const sentMessage = messages.filter((message) => message.status == 'sent')
+        return sentMessage
+      },
+
+      getReceivedAcess(messages){
+        const receivedMessage = messages.filter((message) => message.status == 'received')
+        return receivedMessage
+      },
     }
   }).mount('#app')
