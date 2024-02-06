@@ -168,7 +168,13 @@ const { createApp } = Vue
           }
           ],
 
-          currentIndex: 0
+          currentIndex: 0,
+
+          newMessage:{
+            date: '',
+            message: '',
+            status: 'sent'
+          }
           
       }
     },
@@ -196,14 +202,20 @@ const { createApp } = Vue
         return lastAccess.date
       },
 
-      getSentAcess(messages){
+      getSentMessage(messages){
         const sentMessage = messages.filter((message) => message.status == 'sent')
         return sentMessage
       },
 
-      getReceivedAcess(messages){
+      getReceivedMessage(messages){
         const receivedMessage = messages.filter((message) => message.status == 'received')
         return receivedMessage
       },
+
+      sendNewMessage(){
+        const newMessageCopy = {...this.newMessage}
+        this.contacts.messages.push(newMessageCopy)
+        this.newMessage.message='';
+      }
     }
   }).mount('#app')

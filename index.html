@@ -174,13 +174,11 @@
 
                         <section id="chat-box">
 
-                            <div class="box-sent-mex" v-for="message in getSentAcess(currentContact.messages)" >
-                                <div class="sent mex p-2"><span>{{message.message}}</span></div>
+                            <div :class="(message.status == 'sent') ? 'position-sent' : ''" class="box-sent-mex" v-for="message in currentContact.messages" >
+                                <div :class="(message.status == 'sent') ? 'sent' : 'received' " class="mex p-2"><span>{{message.message}}</span></div>
                             </div>
 
-                            <div class="box-received-mex" v-for="message in getReceivedAcess(currentContact.messages)">
-                                <span class="received mex p-2">{{message.message}}</span>
-                            </div>
+                            
 
                         </section>
 
@@ -194,7 +192,10 @@
 
                                 </div>
 
-                                <div class="box-message debug">
+                                <div class="box-message d-flex justify-content-center align-items-center debug">
+
+                                    <input type="text" class="w-75" v-model="newMessage.message" @keyup.enter="sendNewMessage()">
+                                    <div class="btn" @click="sendNewMessage()">invia</div>
 
                                 </div>
 

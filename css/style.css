@@ -172,10 +172,11 @@
     overflow: hidden;
     height: fit-content;
     display: flex;
-    justify-content: flex-end;
     overflow-wrap: break-word;
+}
 
-
+.position-sent{
+    justify-content: flex-end;
 }
 
 .sent{
